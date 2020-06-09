@@ -37,3 +37,8 @@ infer_model = model2_tf.signatures['serving_default']
 infer_model.structured_input_signature
 infer_model.structured_outputs
 predict = infer_model(input_layer0 = tf.constant(np.array([1, 2])[:,None], dtype='float32'))['dense_layer0'].numpy()
+
+# $ saved_model_cli show --dir /tmp/mobilenet/1 --tag_set serve --signature_def serving_default
+
+#pretrained models
+pretrained_model = tf.keras.applications.load('mobilenet_1_0_224_tf.h5')
